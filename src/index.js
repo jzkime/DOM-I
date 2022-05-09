@@ -41,25 +41,28 @@ const siteContent = { // DO NOT CHANGE THIS OBJECT
 
 console.log('project wired!')
 
-// navigation declaration
+// navigation 
 const navLinks = document.querySelectorAll("nav a");
 
-navLinks.forEach(link => link.setAttribute("class", "italic"))
+navLinks.forEach((link, index) => {
+  link.className = "italic";
+  navLinks[index].textContent = siteContent["nav"]["nav-item-" + (index + 1)]
+})
 
-for(let i = 0; i<navLinks.length; i++){
-  navLinks[i].textContent = siteContent["nav"]["nav-item-" + (i + 1)]
-}
-
-// heading declaration
+// heading 
 const logoImg = document.querySelector("#logo-img");
+logoImg.src = siteContent["images"]["logo-img"];
 
 const headerTitle = document.querySelector("h1");
 const headerButton = document.querySelector(".cta-text button");
+headerTitle.textContent = siteContent["cta"]["h1"];
+headerButton.textContent = siteContent["cta"]["button"];
 
 // heading img
 const codeImg = document.querySelector("#cta-img");
+codeImg.src = siteContent["images"]["cta-img"];
 
-// content declarations
+// topcontent 
 const firstContent = document.querySelector(".top-content .text-content");
 const secondContent = firstContent.nextElementSibling;
 
@@ -68,58 +71,46 @@ const firstParaContent = firstContent.querySelector("p");
 const secondHeadContent = secondContent.querySelector("h4");
 const secondParaContent = secondContent.querySelector("p");
 
-// content middle image
-const middleImg = document.querySelector(".middle-img");
-
-// bottom content dec
-const firstBottomDiv = document.querySelector(".bottom-content .text-content")
-const firstBottHeading = firstBottomDiv.querySelector("h4");
-const firstBottContent = firstBottomDiv.querySelector("p");
-
-const secondBottDiv = firstBottomDiv.nextElementSibling;
-const secondBottHeading = secondBottDiv.querySelector("h4");
-const secondBottContent = secondBottDiv.querySelector("p");
-
-const lastBottDiv = secondBottDiv.nextElementSibling;
-const lastBottHeading = lastBottDiv.querySelector("h4");
-const lastBottContent = lastBottDiv.querySelector("p");
-
-const contactSec = document.querySelector(".contact");
-const contactHead = contactSec.querySelector("h4");
-const contactpFirst = contactSec.querySelector("p");
-const contactpSecond = contactpFirst.nextElementSibling;
-const contactpThird = contactpSecond.nextElementSibling;
-
-const foot = document.querySelector("footer a");
-
-// changing textContent
-logoImg.src = siteContent["images"]["logo-img"];
-
-headerTitle.textContent = siteContent["cta"]["h1"];
-headerButton.textContent = siteContent["cta"]["button"];
-
-codeImg.src = siteContent["images"]["cta-img"];
-
 firstHeadContent.textContent = siteContent["main-content"]["features-h4"];
 firstParaContent.textContent = siteContent["main-content"]["features-content"];
 secondHeadContent.textContent = siteContent["main-content"]["about-h4"];
 secondParaContent.textContent = siteContent["main-content"]["about-content"]
 
+// content middle image
+const middleImg = document.querySelector(".middle-img");
 middleImg.src = siteContent["images"]["accent-img"]
 
+// bottom content
+const firstBottomDiv = document.querySelector(".bottom-content .text-content")
+const firstBottHeading = firstBottomDiv.querySelector("h4");
+const firstBottContent = firstBottomDiv.querySelector("p");
 firstBottHeading.textContent = siteContent["main-content"]["services-h4"];
 firstBottContent.textContent = siteContent["main-content"]["services-content"];
 
+const secondBottomDiv = firstBottomDiv.nextElementSibling;
+const secondBottHeading = secondBottomDiv.querySelector("h4");
+const secondBottContent = secondBottomDiv.querySelector("p");
 secondBottHeading.textContent = siteContent["main-content"]["product-h4"];
 secondBottContent.textContent = siteContent["main-content"]["product-content"]
 
+const lastBottomDiv = secondBottomDiv.nextElementSibling;
+const lastBottHeading = lastBottomDiv.querySelector("h4");
+const lastBottContent = lastBottomDiv.querySelector("p");
 lastBottHeading.textContent = siteContent["main-content"]["vision-h4"];
 lastBottContent.textContent = siteContent["main-content"]["vision-content"];
 
+// contact section
+const contactDiv = document.querySelector(".contact");
+const contactHead = contactDiv.querySelector("h4");
+const contactpFirst = contactDiv.querySelector("p");
+const contactpSecond = contactpFirst.nextElementSibling;
+const contactpThird = contactpSecond.nextElementSibling;
 contactHead.textContent = siteContent["contact"]["contact-h4"];
 contactpFirst.textContent = siteContent["contact"]["address"];
 contactpSecond.textContent = siteContent["contact"]["phone"];
 contactpThird.textContent = siteContent["contact"]["email"];
 
+// footer
+const foot = document.querySelector("footer a");
 foot.textContent = siteContent["footer"]["copyright"];
-foot.setAttribute("class", "bold");
+foot.className = "bold";
